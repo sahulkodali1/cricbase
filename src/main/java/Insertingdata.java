@@ -52,7 +52,9 @@ conn.close();
 			pst.setString(5, p.getNationality());
 
 			int roweffected = pst.executeUpdate();
-			System.out.println(roweffected);
+			System.out.println("no of rows effected are:"+roweffected);
+			
+			
 			pst.close();
 			conn.close();
 
