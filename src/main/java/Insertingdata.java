@@ -8,40 +8,37 @@ import java.util.Scanner;
 import tables.Player;
 
 public class Insertingdata {
-	
-	public static void maxId()
-	{
-		
+
+	public static void maxId() {
+
 		try {
-			Connection	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sahuldatabse", "root",
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sahuldatabse", "root",
 					"9396334879");
-			int maxId=0;
+			int maxId = 0;
 			String sql1 = "SELECT MAX(player_id) FROM player";
 			PreparedStatement pst1 = conn.prepareStatement(sql1);
-			ResultSet rs=pst1.executeQuery();
-			while(rs.next()){
-				 maxId = rs.getInt(1);
-				}
-			System.out.println("the nextid for the feild would be "+(maxId+1));
-rs.close();
-pst1.close();
-conn.close();
-			
+			ResultSet rs = pst1.executeQuery();
+			while (rs.next()) {
+				maxId = rs.getInt(1);
+			}
+			System.out.println("the nextid for the feild would be " + (maxId + 1));
+			rs.close();
+			pst1.close();
+			conn.close();
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		
-		
 	}
+
 	public static void insetingDatabyAdmin(Player p) {
 		try {
 
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sahuldatabse", "root",
 					"9396334879");
 
-			
 			String sql = "insert into player(player_id,name,age,role,nationality) values(?,?,?,?,?)";
 			PreparedStatement pst = conn.prepareStatement(sql);
 
@@ -52,9 +49,8 @@ conn.close();
 			pst.setString(5, p.getNationality());
 
 			int roweffected = pst.executeUpdate();
-			System.out.println("no of rows effected are:"+roweffected);
-			
-			
+			System.out.println("no of rows effected are:" + roweffected);
+
 			pst.close();
 			conn.close();
 
@@ -67,8 +63,7 @@ conn.close();
 
 	}
 
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		Insertingdata.maxId();
 		Scanner scan = new Scanner(System.in);
 		System.out.print("how many members you want to add to table: ");
@@ -99,8 +94,5 @@ conn.close();
 			insetingDatabyAdmin(p1);
 		}
 
-			
 	}
 }
-
-	

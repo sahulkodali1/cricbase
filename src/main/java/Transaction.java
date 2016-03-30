@@ -1,12 +1,11 @@
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
-public class Transaction{
+public class Transaction {
 	public static void main(String[] args) {
 		transactions();
 	}
@@ -47,7 +46,8 @@ public class Transaction{
 	}
 
 	private static Connection getConnection() throws SQLException {
-		Connection myconn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sahuldatabse", "root","9396334879");
+		Connection myconn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sahuldatabse", "root",
+				"9396334879");
 		return myconn;
 	}
 }

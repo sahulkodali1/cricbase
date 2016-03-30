@@ -1,8 +1,5 @@
 package tables;
 
 public enum Playerstatus {
-comebacks,
-Injured,
-Banned,
-Retired
+	comebacks, Injured, Banned, Retired
 }
